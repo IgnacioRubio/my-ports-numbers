@@ -18,31 +18,10 @@ export class PortTableService {
 
   getPortTable(): Observable<any>{
     return this.http.get<any>(this.portTableUrl).pipe(
-      map(record => { 
-        // console.log("map time: " + JSON.stringify(record['record'][0]));
-        // let myPort: Port = {
-        //   name : record['record'][0]['name'] || '<no name>',
-        //   numberPort : record['record'][0]['number'] || '<no number>',
-        //   transportProtocol : record['record'][0]['protocol'] || '<no protocol>',
-        //   description : record['record'][0]['description'] || '<no description>'
-        // };
-        
-        // return record['record'][0]
+      map(record => {
         return this.process(record['record']);
       })
     );
-    // portsTable.subscribe(ports => {
-    //   ports['record'].forEach(function(port){
-    //     let p: Port = {
-    //       name: port['name'] || '<no name>',
-    //       numberPort: port['number'] || '<no number>',
-    //       transportProtocol: port['protocol'] || '<no protocol>',
-    //       description: port['description'] || '<no description>'
-    //     };
-    //     portsToSend.push(p);
-    //   });
-    // });
-    // return of (portsToSend);
   }
 
   process(data:any)  
