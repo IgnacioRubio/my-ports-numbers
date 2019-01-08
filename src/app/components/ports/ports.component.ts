@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { PortTableService } from '../../services/port-table.service';
 
+import { Port } from '../../classes/port';
+
 @Component({
   selector: 'app-ports',
   templateUrl: './ports.component.html',
@@ -9,8 +11,8 @@ import { PortTableService } from '../../services/port-table.service';
 })
 export class PortsComponent implements OnInit {
 
-  portsTable = [];
-  dataFetched = false;
+  portsTable: Port[] = [];
+  dataFetched: boolean = false;
   
   constructor(private portTable: PortTableService) { }
 
